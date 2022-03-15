@@ -11,26 +11,6 @@ cd client-sdk-java/
 
 # Use
 
-* import compiled .jar file into local maven cache(~/.m2) manually
-* config maven or gradle in project
-
-```
-<dependency>
-    <groupId>com.venachain.client</groupId>
-    <artifactId>core</artifactId>
-    <version>1.0.1</version>
-</dependency>
-```
-
-or
-
-```
-compile "com.venachain.client:core:1.0.1"
-```
-
-* use in project
-
-```
-Web3j web3 = Web3j.build(new HttpService("https://host:port"));
-```
+* Move compiled .jar file to working directory, or copy into local maven cache(~/.m2)
+* Import built jar files as dependencies in your own project.
 
