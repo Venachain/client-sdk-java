@@ -12,7 +12,7 @@ for target in ${targets}; do
     echo "Generating web3j bindings"
     web3j truffle generate \
         build/contracts/${fileName}.json \
-        -p org.web3j.generated \
+        -p com.venachain.generated \
         -o ../../../../../../integration-tests/src/test/java/ > /dev/null
     echo "Complete"
 

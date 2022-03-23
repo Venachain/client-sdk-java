@@ -11,7 +11,7 @@ Java 8:
 .. code-block:: xml
 
    <dependency>
-     <groupId>org.web3j</groupId>
+     <groupId>com.venachain</groupId>
      <artifactId>core</artifactId>
      <version>3.5.0</version>
    </dependency>
@@ -21,7 +21,7 @@ Android:
 .. code-block:: xml
 
    <dependency>
-     <groupId>org.web3j</groupId>
+     <groupId>com.venachain</groupId>
      <artifactId>core</artifactId>
      <version>3.3.1-android</version>
    </dependency>
@@ -33,13 +33,13 @@ Java 8:
 
 .. code-block:: groovy
 
-   compile ('org.web3j:core:3.5.0')
+   compile ('com.venachain:core:3.5.0')
 
 Android:
 
 .. code-block:: groovy
 
-   compile ('org.web3j:core:3.3.1-android')
+   compile ('com.venachain:core:3.3.1-android')
 
 
 Start a client
@@ -280,7 +280,7 @@ If you want to make use of Parity's
 `Personal <https://github.com/paritytech/parity/wiki/JSONRPC-personal-module>`__ or
 `Trace <https://github.com/paritytech/parity/wiki/JSONRPC-trace-module>`_, or Geth's
 `Personal <https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal>`__ client APIs,
-you can use the *org.web3j:parity* and *org.web3j:geth* modules respectively.
+you can use the *com.venachain:parity* and *com.venachain:geth* modules respectively.
 
 
 Command line tools

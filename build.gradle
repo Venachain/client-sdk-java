@@ -37,7 +37,7 @@ apply plugin: 'idea'
 apply plugin: 'io.codearte.nexus-staging'
 apply plugin: 'jacoco'
 
-description 'web3j base project'
+description 'venachain-sdk-java base project'
 
 allprojects {
 
@@ -163,15 +163,9 @@ configure(subprojects.findAll { it.name != 'integration-tests' }) {
                 }
 
                 pom.project {
-                    name 'web3j'
+                    name 'venachain-sdk-java'
                     packaging 'jar'
                     description project.description
-                    url 'https://web3j.io'
-
-                    scm {
-                        connection 'scm:git:https://github.com/web3j/web3j.git'
-                        url 'https://github.com/web3j/web3j.git'
-                    }
 
                     licenses {
                         license {
@@ -206,13 +200,9 @@ configure(subprojects.findAll { it.name != 'integration-tests' }) {
         publish = true
         pkg {
             repo = 'maven'
-            name = 'org.web3j'
+            name = 'com.venachain'
             desc = project.description
-            userOrg = 'web3j'
             licenses = ['Apache-2.0']
-            issueTrackerUrl = 'https://github.com/web3j/web3j/issues'
-            vcsUrl = 'https://github.com/web3j/web3j.git'
-            websiteUrl = 'https://web3j.io'
             publicDownloadNumbers = true
         }
     }
@@ -262,9 +252,9 @@ task jacocoRootTestReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
         classDirectories = files(classDirectories.files.collect {
             fileTree(dir: it,
                     exclude: [
-                            'org/web3j/abi/datatypes/generated/**',
-                            'org/web3j/tuples/generated/**',
-                            'org/web3j/ens/contracts/generated/**'
+                            'com/venachain/abi/datatypes/generated/**',
+                            'com/venachain/tuples/generated/**',
+                            'com/venachain/ens/contracts/generated/**'
                     ])
         })
     }

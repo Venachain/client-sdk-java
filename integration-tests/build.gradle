@@ -1,5 +1,5 @@
 
-description 'web3j integration tests'
+description 'venachain-sdk-java integration tests'
 
 dependencies {
     compile project(':core'),

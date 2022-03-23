@@ -17,11 +17,11 @@ for target in ${targets}; do
     solc --bin --abi --optimize --overwrite ${fileName}.sol -o build/
     echo "Complete"
 
-    echo "Generating web3j bindings"
+    echo "Generating venachain-sdk-java bindings"
     web3j solidity generate \
         build/${fileName}.bin \
         build/${fileName}.abi \
-        -p org.web3j.ens.contracts.generated \
+        -p com.venachain.ens.contracts.generated \
         -o ../../../../main/java/ > /dev/null
     echo "Complete"
 

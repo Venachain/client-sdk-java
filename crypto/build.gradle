@@ -1,5 +1,5 @@
 
-description 'web3j Ethereum crypto library'
+description 'venachain-sdk-java Ethereum crypto library'
 
 dependencies {
     compile project(':abi'),

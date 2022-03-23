@@ -15,6 +15,6 @@ for target in ${targets}; do
         ../../codegen/src/test/resources/solidity/${target}.bin \
         ../../codegen/src/test/resources/solidity/${target}.abi \
         -o /Users/Conor/code/java/web3j/integration-tests/src/test/java \
-        -p org.web3j.generated
+        -p com.venachain.generated
 
 done
