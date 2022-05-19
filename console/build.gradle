@@ -12,5 +12,5 @@ dependencies {
 }
 
 // Build command line library release with target distShadowZip
-mainClassName = 'org.web3j.console.Runner'
+mainClassName = 'com.venachain.console.Runner'
 applicationName = 'client-sdk'

@@ -30,7 +30,7 @@ All modules are published to both Maven Central and Bintray, with the published 
 using the names listed above, i.e.:
 
 For Java:
-  org.web3j:<module-name>:<version>
+  com.venachain:<module-name>:<version>
 
 For Android:
-  org.web3j:<module-name>:<version>-android
+  com.venachain:<module-name>:<version>-android
