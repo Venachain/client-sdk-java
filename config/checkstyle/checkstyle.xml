@@ -173,7 +173,7 @@
         <module name="CustomImportOrder">
             <property name="sortImportsInGroupAlphabetically" value="true"/>
             <property name="separateLineBetweenGroups" value="true"/>
-            <property name="specialImportsRegExp" value="^org.web3j\."/>
+            <property name="specialImportsRegExp" value="^com.venachain\."/>
             <property name="customImportOrderRules" value="STANDARD_JAVA_PACKAGE###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS###STATIC"/>
         </module>
         <module name="MethodParamPad"/>

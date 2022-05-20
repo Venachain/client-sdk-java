@@ -164,7 +164,7 @@ You can also generate the wrappers by calling the Java class directly:
 
 .. code-block:: bash
 
-   org.web3j.codegen.SolidityFunctionWrapperGenerator /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
+   SolidityFunctionWrapperGenerator /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
 
 Where the *bin* and *abi* are obtained as per :ref:`compiling-Solidity`.
 
@@ -193,7 +193,7 @@ And this also can be invoked by calling the Java class:
 
 .. code-block:: bash
 
-   org.web3j.codegen.TruffleJsonFunctionWrapperGenerator /path/to/<truffle-smart-contract-output>.json -o /path/to/src/main/java -p com.your.organisation.name
+   TruffleJsonFunctionWrapperGenerator /path/to/<truffle-smart-contract-output>.json -o /path/to/src/main/java -p com.your.organisation.name
 
 A wrapper generated this way ia "enhanced" to expose the per-network deployed address of the
 contract.  These addresses are from the truffle deployment at the time the wrapper is generared.
