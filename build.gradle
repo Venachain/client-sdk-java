@@ -46,7 +46,6 @@ allprojects {
 
     apply plugin: 'java'
     apply plugin: 'jacoco'
-//    apply plugin: 'checkstyle'
 
     repositories {
         mavenCentral()
@@ -77,11 +76,6 @@ allprojects {
     tasks.withType(Test) {
         reports.html.destination = file("${reporting.baseDir}/${name}")
     }
-
-//    checkstyle {
-//        toolVersion = "7.7"
-//        configFile = file("${rootProject.projectDir}/config/checkstyle/checkstyle.xml")
-//    }
 }
 
 subprojects {
@@ -148,45 +142,20 @@ configure(subprojects.findAll { it.name != 'integration-tests' }) {
     uploadArchives {
         repositories {
             mavenDeployer {
-                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-                onlyIf {
-                    ossrhUsername != '' && ossrhPassword != ''
-                }
-
                 String repoUrl = isSnapshotVersion ? "$mavenReleases" : "$mavenSnapshots";
                 repository(url: repoUrl) {
                     authentication(
-                            userName: ossrhUsername,
-                            password: ossrhPassword
+                            userName: "$username",
+                            password: "$password"
                     )
                 }
 
-                pom.project {
-                    name 'web3j'
-                    packaging 'jar'
-                    description project.description
-                    url 'https://web3j.io'
-
-                    scm {
-                        connection 'scm:git:https://github.com/web3j/web3j.git'
-                        url 'https://github.com/web3j/web3j.git'
-                    }
-
-                    licenses {
-                        license {
-                            name 'The Apache License, Version 2.0'
-                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id 'conor10'
-                            name 'Conor Svensson'
-                            email 'conor10@gmail.com'
-                        }
-                    }
+                pom.groupId = 'com.venachain.sdk'
+                pom.version = '1.0.1-SNAPSHOT'
+                pom.project{
+                    name = "venachain.sdk"
+                    packaging = 'jar'
+                    description = 'java sdk for venachain'
                 }
             }
         }
@@ -196,28 +165,6 @@ configure(subprojects.findAll { it.name != 'integration-tests' }) {
         required { gradle.taskGraph.hasTask('uploadArchives') }  // only execute as part of this task
         sign configurations.archives
     }
-    
-
-/*  
-    bintray {
-        user = bintrayUser
-        key = bintrayKey
-        publications = ['mavenJava']
-        publish = true
-        pkg {
-            repo = 'maven'
-            name = 'com.venachain'
-            desc = project.description
-            userOrg = 'web3j'
-            licenses = ['Apache-2.0']
-            issueTrackerUrl = 'https://github.com/web3j/web3j/issues'
-            vcsUrl = 'https://github.com/web3j/web3j.git'
-            websiteUrl = 'https://web3j.io'
-            publicDownloadNumbers = true
-        }
-    }
-*/
-
     
 task release {
         //TODO run clean & closeAndPromoteRepository once
@@ -255,17 +202,6 @@ task jacocoRootTestReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
     doFirst {
         executionData = files(executionData.findAll {
             it.exists()
-        })
-    }
-
-    afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it,
-                    exclude: [
-                            'org/web3j/abi/datatypes/generated/**',
-                            'org/web3j/tuples/generated/**',
-                            'org/web3j/ens/contracts/generated/**'
-                    ])
         })
     }
 }

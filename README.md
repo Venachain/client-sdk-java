@@ -11,6 +11,18 @@ cd client-sdk-java/
 
 # Use
 
-* Move compiled .jar file to working directory, or copy into local maven cache(~/.m2)
-* Import built jar files as dependencies in your own project.
-
+* [Download](https://github.com/Venachain/client-sdk-java/releases) compiled .jar files to local directory and import them in your project in IDE configuration.  
+* Alternatively, you can import from our maven repository. URL: http://maven.wxblockchain.org:8081/repository/maven-public/
+* maven
+   ```xml
+   <dependency>
+        <groupId>com.venachain.sdk</groupId>
+        <artifactId>core</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+   </dependency>
+  ```
+* gradle
+```integrationperformancetest
+implementation 'com.venachain.sdk:core:1.0.1-SNAPSHOT'
+```
+* Import dependencies `abi`, `crypto`, `utils`, `tuples`, `rlp` same way as above when necessary. 
